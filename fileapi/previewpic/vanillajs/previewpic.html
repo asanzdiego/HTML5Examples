@@ -55,13 +55,11 @@
         <h1>Cargar foto con HTML5 File API</h1>
         <h3>Previsualización de imagenes JPEG, PNG, GIF o BMP</h3>
         </br></br>
-        <form enctype="multipart/form-data" method="post" action="gestion.php">
-            <!-- Primera validación de el cliente con atributo required de html5-->
+        <form enctype="multipart/form-data">
 
             <label>Archivo</label>
             </br>
-            <input type="file" name="fichero" id="fichero" multiple data-min-file-count="1" required="required"
-                   accept="image/*"/>
+            <input type="file" name="fichero" id="fichero" required="required" accept="image/*"/>
             </br>
             </br>
             <label>Preview</label>
