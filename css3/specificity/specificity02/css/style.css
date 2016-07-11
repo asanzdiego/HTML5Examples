@@ -1,0 +1,9 @@
+ul#blogroll a
+{
+    color: #00c;
+}
+
+ul#blogroll a.highlight
+{
+    color: #c00;
+}

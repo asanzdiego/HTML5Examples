@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    var gradiente1=lienzo.createRadialGradient(200,200,0,100,200,200);
+    gradiente1.addColorStop(0,"rgb(255,0,0)");
+    gradiente1.addColorStop(1,"rgb(0,0,255)");
+    lienzo.fillStyle=gradiente1;
+    lienzo.arc(200,200,100,0,Math.PI*2,true);
+    lienzo.fill();
+    
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

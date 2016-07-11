@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head><meta charset="utf-8">
+        <title>HTML5 Sample Validation Page</title>
+        <style type="text/css">
+            body
+            {
+                font-family:Arial;
+                font-size:12px;
+            }
+            .valid
+            {
+                color:#000000;
+            }
+            .invalid
+            {
+                color:#FF0000;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="form1" method="post">
+            <label>Age: <input type="number" required="true" value="50" min="18" max="60" step="1" oninput="validate(this)"> (between 18 and 60)</label><br /><br />
+            <div id="validateMsg"></div><br />
+            <div id="validity"></div>
+            <script>
+                function validate(input) {
+                    //logically decide and set custom validation message
+                    if (input.value == "20" || input.value == "30") {
+                        // set custom validation message
+                        input.setCustomValidity('Your Age (' + input.value + ') is in a transition phase.');
+                    } else {
+                        // reset the validation message - makes it valid for checkValidity function
+                        input.setCustomValidity('');
+                    }
+                    document.getElementById('validateMsg').innerHTML = 'Validation Message: "' + input.validationMessage + '"';
+                    document.getElementById('validity').innerHTML = 'checkValidity function output: "' + input.checkValidity() + '"';
+                }
+            </script>
+        </form>
+    </body>
+</html>

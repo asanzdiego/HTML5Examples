@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+/**
+ * Play with these:
+ * > title~=flower --> catches 'flower' alone or in a whitespace separated list
+ * > title|=flower --> catches every title attribute equal to 'flower' or starting with 'flower-'. If 
+ *  title is a list, this only applies if the element starting with flower[-] is the first of the list
+ * > title^=flower --> catches anything starting with 'flower'. If title is a list, this only applies
+ *  if the element starting with flower is the first of the list
+ * > title=$flower --> catches anything ending with 'flower'. If title is a list, this only applies
+ *  if the element ending with flower is the first of the list
+ *
+ **/    
+[title$=flower] {
+    border: 5px solid yellow;
+}
+</style>
+</head>
+<body>
+
+<p>The image with the title attribute containing the word "flower" gets a yellow border.</p>
+
+<img src="http://www.w3schools.com/cssref/klematis.jpg" title="powerflower" width="150" height="113">
+<img src="http://www.w3schools.com/cssref/img_flwr.gif" title="flowers powers" width="224" height="162">
+<img src="http://www.w3schools.com/cssref/landscape.jpg" title="landscape" width="160" height="120">
+
+<p><b>Note:</b> For [<i>attribute</i>~=<i>value</i>] to work in IE8 and earlier, a DOCTYPE must be declared.</p>
+
+</body>
+</html>

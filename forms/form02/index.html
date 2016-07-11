@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>EJEMPLO FORMULARIO VALIDACION</title>
+    </head>
+    <body>
+
+        <form id="myForm" >
+            <input type="email" name="email1" id="email1" 
+                   placeholder="mail@dominio" 
+                   title="Este campo es tipo Email" 
+                   oninvalid="setCustomValidity('Formato de email incorrecto')"
+                   oninput="setCustomValidity('')"
+                   required="required"/>
+            <input type="submit" value="Enviar" />
+        </form>
+
+
+    </body>
+</html>

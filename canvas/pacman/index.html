@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CANVAS Y SVG</title>
+
+        <script type="text/javascript">
+            function inicio() {
+                var botoncito = document.getElementById("boton");
+                botoncito.addEventListener("click", dibujar, true);
+            }
+
+            function retornarLienzo(x) {
+                var canvas = document.getElementById(x);
+                if (canvas.getContext) {
+                    var lienzo = canvas.getContext("2d");
+                    return lienzo;
+                } else
+                    return false;
+            }
+
+            function dibujar() {
+                var lienzo = retornarLienzo("lienzo1");
+                if (lienzo) {
+                    lienzo.fillStyle = "rgb(255,255,0)";
+                    lienzo.beginPath();
+                    lienzo.arc(200, 200, 70, Math.PI * 0.25, Math.PI * 1.75, false);
+                    lienzo.lineTo(200, 200);
+                    lienzo.fill();
+
+                    lienzo.fillStyle = "rgb(255,0,0)";
+                    lienzo.beginPath();
+                    lienzo.arc(205, 155, 10, 0, Math.PI * 2, false);
+                    lienzo.fill();
+
+                    var gradiente1=lienzo.createLinearGradient(300,0,400,0);
+                    gradiente1.addColorStop(0,"rgb(255,0,0)");
+                    gradiente1.addColorStop(0.5,"rgb(255,255,0)");
+                    gradiente1.addColorStop(1,"rgb(0,0,0)");
+                    lienzo.fillStyle=gradiente1;			lienzo.beginPath();
+                    lienzo.arc(300, 200, 10, 0, Math.PI * 2, false);
+                    lienzo.fill();
+                    lienzo.beginPath();
+                    lienzo.arc(350, 200, 10, 0, Math.PI * 2, false);
+                    lienzo.fill();
+                    lienzo.beginPath();
+                    lienzo.arc(400, 200, 10, 0, Math.PI * 2, false);
+                    lienzo.fill();
+
+                }
+            }
+        </script>
+        <style type="text/css">
+            #boton {
+                font: 1.15em sans-serif;
+                color: red;
+                display: inline-block;
+                padding: 12px 40px;
+                -moz-border-radius: 1000px;
+                -webkit-border-radius: 1000px;
+                border-radius: 1000px;
+                -moz-box-shadow: 0 0 0 1px #47901A inset, -1px 0 1px 1px #FFF inset,
+                    -1px 0 1px 1px #FFF inset, 0 8px 15px -4px rgba(255, 255, 255, 0.4)
+                    inset, 0 -10px 19px -2px #8E3 inset;
+                -webkit-box-shadow: 0 0 0 1px #47901A inset, -1px 0 1px 1px #FFF inset,
+                    -1px 0 1px 1px #FFF inset, 0 8px 15px -4px rgba(255, 255, 255, 0.4)
+                    inset, 0 -10px 19px -2px #8E3 inset;
+                box-shadow: 0 0 0 1px #47901A inset, -1px 0 1px 1px #FFF inset, -1px 0
+                    1px 1px #FFF inset, 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset, 0
+                    -10px 19px -2px #8E3 inset;
+                background-color: #00f;
+            }
+
+            #boton:hover {
+                -moz-box-shadow: 0 30px 30px -15px rgba(0, 0, 0, 0.2) inset, 0 1px 3px
+                    rgba(0, 0, 0, 0.7) inset, 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+                -webkit-box-shadow: 0 30px 30px -15px rgba(0, 0, 0, 0.2) inset, 0 1px
+                    3px rgba(0, 0, 0, 0.7) inset, 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+                box-shadow: 0 30px 30px -15px rgba(0, 0, 0, 0.2) inset, 0 1px 3px
+                    rgba(0, 0, 0, 0.7) inset, 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+            }
+        </style>
+    </head>
+    <body onLoad="inicio()">
+        <canvas id="lienzo1" width="600" height="600">
+            Su navegador no permite utilizar canvas.
+        </canvas>
+        <p id="boton">VER CANVAS</p>
+
+    </body>
+</html>

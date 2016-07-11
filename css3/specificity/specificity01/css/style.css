@@ -1,0 +1,74 @@
+/**
+ * Start situation: 2 conflicting declarations.
+ * The problem: just ".favorite" isn't specific enough
+ **/
+/*
+.favorite {
+  color: red;
+  font-weight: bold;
+}
+
+ul#summer-drinks li {
+   font-weight: normal;
+   font-size: 16px;
+   color: black;
+}
+*/
+
+/**
+ * This would work... but you would be lazy, or rude. Bad practice, in general
+ **/
+/*
+.favorite {
+    color: red !important;
+    font-weight: bold !important;
+}
+*/
+
+/**
+ * This would make more sense: being as specific as necessary
+ **/
+ul#summer-drinks li.favorite {
+  color: red;
+  font-weight: bold;
+}
+
+/**
+ * Which was the problem?
+ * 
+ * Simply using the class name by itself had a lower specificity value and 
+ * was trumped by the other selector which targeted the unordered list with 
+ * the ID value.  
+ *
+ * How specificity works? Assigning weights to any appearance of:
+ *
+ * Style attributes
+ * IDs
+ * Class, pseudo-class, attributes
+ * Elements, pseudo-elements
+ * 
+ * The weight of style attributes are the most important. The weight o elements/pseudo-elements
+ * are the less important.
+ * 
+ * Examples:
+ *    .favorite:
+ *        - Number of style attributes: 0
+ *        - Number of IDs: 0
+ *        - Number of class, pseudo-classes or attributes: 1 (favorite class)
+ *        - Number of elements or pseudo-elements: 0
+ *        - Total: weight of 0010
+ *
+ *    ul#summer-drinks li.favorite:
+ *        - Number of style attributes: 0
+ *        - Number of IDs: 1 (summer-drinks)
+ *        - Number of class, pseudo-classes or attributes: 1 (favorite class)
+ *        - Number of elements or pseudo-elements: 2 (ul and li)
+ *        - Total: weight of 0112
+ *
+ *    0112 > 0010 ==> Second one wins!
+ * 
+ *    Take into account that:
+ *        - * selector has no specificity value (0, 0, 0, 0)
+ *        - the pseudoclass :not() adds no specificity by itself. Only what's inside the parentheses
+ *        - !important always wins, unless there's another rule with more specificity and also a !important
+ **/

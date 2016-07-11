@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<title>box-shadow</title>
+<style type="text/css">
+html {
+  margin: 40px;
+}
+#simple p {
+  margin: 30px 40px;
+  width: 80px;
+  height: 30px;
+  border: 1px solid #999;
+  float: left;
+}
+#p1 {
+  -moz-box-shadow: 5px 3px black;
+  -webkit-box-shadow: 5px 3px black;
+  box-shadow: 5px 3px black;
+}
+#p2 {
+  -moz-box-shadow: 3px 3px 5px black;
+  -webkit-box-shadow: 3px 3px 5px black;
+  box-shadow: 3px 3px 5px black;
+}
+#p3 {
+  -moz-box-shadow: 0 0 5px 5px black;
+  -webkit-box-shadow: 0 0 5px 5px black;
+  box-shadow: 0 0 5px 5px black;
+}
+#p4 {
+  -moz-box-shadow: 0 5px 5px -3px black;
+  -webkit-box-shadow: 0 5px 5px -3px black;
+  box-shadow: 0 5px 5px -3px black;
+}
+#p5 {
+  width: 40px !important;
+  border: none !important;
+  -moz-box-shadow:   0     0   20px black,
+                    20px  15px 30px yellow,
+                   -20px  15px 30px lime,
+                   -20px -15px 30px blue,
+                    20px -15px 30px red;
+  -webkit-box-shadow:   0     0   20px black,
+                    20px  15px 30px yellow,
+                   -20px  15px 30px lime,
+                   -20px -15px 30px blue,
+                    20px -15px 30px red;
+  box-shadow:   0     0   20px black,
+                    20px  15px 30px yellow,
+                   -20px  15px 30px lime,
+                   -20px -15px 30px blue,
+                    20px -15px 30px red;
+}
+#p6, #p7 {
+  float: none !important;
+  clear: both;
+  margin-left: 200px !important;
+}
+#p6 {
+  -moz-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+#p7 {
+  -moz-box-shadow: 3px 3px 5px black, 3px 3px 5px black;
+  -webkit-box-shadow: 3px 3px 5px black, 3px 3px 5px black;
+  box-shadow: 3px 3px 5px black, 3px 3px 5px black;
+}
+
+#inset1, #inset2 {
+  display: inline-block;
+  margin: 20px;
+  width: 80px;
+  height: 30px;
+  -moz-box-shadow: inset 2px 2px 5px black;
+  -webkit-box-shadow: inset 2px 2px 5px black;
+  box-shadow: inset 2px 2px 5px black;
+}
+#inset2 {
+  -moz-box-shadow: inset 2px 2px 5px black, 2px 2px 5px black;
+  -webkit-box-shadow: inset 2px 2px 5px black, 2px 2px 5px black;
+  box-shadow: inset 2px 2px 5px black, 2px 2px 5px black;
+}
+
+#miro {
+  font: 1.15em sans-serif;
+  color: white;
+  display: inline-block;
+  padding: 12px 40px;
+  -moz-border-radius: 1000px;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  -moz-box-shadow:
+    0 0 0 1px #47901A inset,
+    -1px 0 1px 1px #FFF inset,
+    -1px 0 1px 1px #FFF inset,
+    0 8px 15px -4px rgba(255, 255, 255, 0.4) inset,
+    0 -10px 19px -2px #8E3 inset;
+  -webkit-box-shadow:
+    0 0 0 1px #47901A inset,
+    -1px 0 1px 1px #FFF inset,
+    -1px 0 1px 1px #FFF inset,
+    0 8px 15px -4px rgba(255, 255, 255, 0.4) inset,
+    0 -10px 19px -2px #8E3 inset;
+  box-shadow:
+    0 0 0 1px #47901A inset,
+    -1px 0 1px 1px #FFF inset,
+    -1px 0 1px 1px #FFF inset,
+    0 8px 15px -4px rgba(255, 255, 255, 0.4) inset,
+    0 -10px 19px -2px #8E3 inset;
+  background-color: #66C233;
+}
+
+#miro:hover {
+  -moz-box-shadow:
+    0 30px 30px -15px rgba(0, 0, 0, 0.2) inset,
+    0 1px 3px rgba(0, 0, 0, 0.7) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+  -webkit-box-shadow:
+    0 30px 30px -15px rgba(0, 0, 0, 0.2) inset,
+    0 1px 3px rgba(0, 0, 0, 0.7) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+  box-shadow:
+    0 30px 30px -15px rgba(0, 0, 0, 0.2) inset,
+    0 1px 3px rgba(0, 0, 0, 0.7) inset,
+    0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+}
+
+#button {
+  margin: 0 20px;
+  display: inline-block;
+  -moz-user-select: none;
+  cursor: default;
+  height: 21px;
+  padding: 0 13px;
+  font: 13px / 20px "Lucida Grande", sans-serif;
+  -moz-border-radius: 1000px;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  background: rgb(235, 235, 235);
+  -moz-box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 1),
+    inset 0 -20px 10px -10px rgba(255, 255, 255, 0.8),
+    inset 0 -13px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 1),
+    inset 0 -20px 10px -10px rgba(255, 255, 255, 0.8),
+    inset 0 -13px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 1),
+    inset 0 -20px 10px -10px rgba(255, 255, 255, 0.8),
+    inset 0 -13px rgba(0, 0, 0, 0.1);
+}
+#button:active:hover {
+  background-color: #79A7D5;
+  -moz-box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 0.4),
+    inset 0 -20px 10px -10px #A4D6F1,
+    inset 0 -13px #387CC0;
+  -webkit-box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 0.4),
+    inset 0 -20px 10px -10px #A4D6F1,
+    inset 0 -13px #387CC0;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.8),
+    inset 0 0 1px #000,
+    inset 0 10px 5px -5px rgba(255, 255, 255, 0.4),
+    inset 0 -20px 10px -10px #A4D6F1,
+    inset 0 -13px #387CC0;
+}
+
+.searchfield {
+  display: inline-block;
+  font: 13px / 1 "Lucida Grande", sans-serif;
+  padding: 4px 10px;
+  margin: 0 4px;
+  -moz-border-radius: 1000px;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  background: #FFF;
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.searchfield.focused {
+-moz-box-shadow:
+  inset 0 0 2px 1px rgba(40, 120, 212, 0.7),
+  0 0 4px 1px rgb(40, 120, 212),
+  inset 0 1px 2px rgba(0, 0, 0, 0.7);
+-webkit-box-shadow:
+  inset 0 0 2px 1px rgba(40, 120, 212, 0.7),
+  0 0 4px 1px rgb(40, 120, 212),
+  inset 0 1px 2px rgba(0, 0, 0, 0.7);
+box-shadow:
+  inset 0 0 2px 1px rgba(40, 120, 212, 0.7),
+  0 0 4px 1px rgb(40, 120, 212),
+  inset 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+#scopebar {
+  background: #D0D0D0;
+  -moz-box-shadow: inset 0 20px 23px -10px #E8E8E8;
+  -webkit-box-shadow: inset 0 20px 23px -10px #E8E8E8;
+  box-shadow: inset 0 20px 23px -10px #E8E8E8;
+  border-bottom: 1px solid #949494;
+  padding: 2px 6px 3px;
+}
+
+#scopebar > p {
+  margin: 0 3px;
+  display: inline-block;
+  -moz-border-radius: 1000px;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  padding: 2px 10px;
+  font: 12px / 13px "Lucida Grande", sans-serif;
+  color: #FFF;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px;
+}
+
+#scopebar > p.hovered {
+  background: rgba(0, 0, 0, 0.32);  
+}
+
+#scopebar > p.pressed {
+  background: rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+}
+
+#scopebar > p.checked {
+  background: rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px rgba(255, 255, 255, 0.4);
+}
+
+#bottombar {
+  margin: 10px 0;
+  background: #969696;
+  -moz-box-shadow: inset 0 25px 27px -10px #BDBDBD;
+  -webkit-box-shadow: inset 0 25px 27px -10px #BDBDBD;
+  box-shadow: inset 0 25px 27px -10px #BDBDBD;
+  border-bottom: 1px solid #424242;
+  padding: 6px;
+}
+
+#bottombar > p {
+  margin: 0 3px;
+  display: inline-block;
+  padding: 2px 10px;
+  font: 12px / 13px "Lucida Grande", sans-serif;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 1px;
+  padding: 3px 6px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 1px, inset 0 20px 20px -10px white;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 1px, inset 0 20px 20px -10px white;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px, inset 0 20px 20px -10px white;
+}
+#bottombar > p.pressed {
+  background: #B5B5B5;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.4) 0 -5px 12px, inset rgba(0, 0, 0, 1) 0 1px 3px, rgba(255, 255, 255, 0.4) 0 1px;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.4) 0 -5px 12px, inset rgba(0, 0, 0, 1) 0 1px 3px, rgba(255, 255, 255, 0.4) 0 1px;
+  box-shadow: inset rgba(0, 0, 0, 0.4) 0 -5px 12px, inset rgba(0, 0, 0, 1) 0 1px 3px, rgba(255, 255, 255, 0.4) 0 1px;
+}
+
+</style>
+<div id="simple">
+  <p id="p1">
+  <p id="p2">
+  <p id="p3">
+  <p id="p4">
+  <p id="p5">
+  <p id="p6">
+  <p id="p7">
+</div>
+
+<div id="inset">
+  <p id="inset1">
+  <p id="inset2">
+  <p id="miro">Download Miro 2.0</p>
+  <p id="button">Button</p>
+  <p class="searchfield">Searchfield</p>
+  <p class="searchfield focused">Focused Searchfield</p>
+  <div id="scopebar">
+    <p class="hovered">Hovered</p>
+    <p class="pressed">Pressed</p>
+    <p class="checked">Checked</p>
+  </div>
+  <div id="bottombar">
+    <p class="normal">Normal</p>
+    <p class="pressed">Pressed</p>
+  </div>
+</div>

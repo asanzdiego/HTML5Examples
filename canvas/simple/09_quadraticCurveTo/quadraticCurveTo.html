@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+var fila=0;
+var bajando=true;
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    lienzo.clearRect(0,0,300,300);
+    lienzo.strokeStyle="rgb(255,0,0)";
+    lienzo.beginPath();
+    lienzo.moveTo(0,150);
+    lienzo.quadraticCurveTo(150,fila,300,150);
+    lienzo.stroke();
+	if(bajando){
+		fila++;
+	}else{
+		fila--;
+	}
+    if (fila>300)
+      bajando=false;
+	else if(fila==0)
+	  bajando=true;
+  }
+}
+
+function iniciar() {
+   variable = setInterval(dibujar,30);
+}
+
+function parar(){
+	clearInterval(variable);
+}
+</script>
+
+</head>
+<body onLoad="iniciar()">
+<canvas id="lienzo1" width="300" height="300">
+Su navegador no permite utilizar canvas.
+</canvas>
+<input type="button" value="parar" onclick="parar()"/>
+<input type="button" value="iniciar" onclick="iniciar()"/>
+</body>
+</html>

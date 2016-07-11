@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <title>Animation example</title>
+
+  <canvas id="trails" style="border: 1px solid;"  width="400" height="600"> </canvas>
+  <script>
+        var canvas = document.getElementById("trails");
+
+        var gravel = new Image();
+        gravel.src = "gravel.jpg";
+        gravel.onload = function () {
+            drawTrails();
+        }
+
+        // create an image for our rain texture
+        var rain = new Image();
+        rain.src = "rain.png";
+        rain.onload = function () {
+          // Start off the animation with a single frame request
+          // once the rain is loaded
+          window.requestAnimFrame(loopAnimation, canvas);
+        }
+
+        function createCanopyPath(context) {
+            context.beginPath();
+            context.moveTo(-25, -50);
+            context.lineTo(-10, -80);
+            context.lineTo(-20, -80);
+            context.lineTo(-5, -110);
+            context.lineTo(-15, -110);
+
+            context.lineTo(0, -140);
+
+            context.lineTo(15, -110);
+            context.lineTo(5, -110);
+            context.lineTo(20, -80);
+            context.lineTo(10, -80);
+            context.lineTo(25, -50);
+            context.closePath();
+        }
+
+        function drawTree(context) {
+            context.save();
+            context.transform(1, 0,
+                              -0.5, 1,
+                              0, 0);
+            context.scale(1, 0.6);
+            context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            context.fillRect(-5, -50, 10, 50);
+            createCanopyPath(context);
+            context.fill();
+            context.restore();
+
+            var trunkGradient = context.createLinearGradient(-5, -50, 5, -50);
+            trunkGradient.addColorStop(0, '#663300');
+            trunkGradient.addColorStop(0.4, '#996600');
+            trunkGradient.addColorStop(1, '#552200');
+            context.fillStyle = trunkGradient;
+            context.fillRect(-5, -50, 10, 50);
+
+            var canopyShadow = context.createLinearGradient(0, -50, 0, 0);
+            canopyShadow.addColorStop(0, 'rgba(0, 0, 0, 0.5)');
+            canopyShadow.addColorStop(0.2, 'rgba(0, 0, 0, 0.0)');
+            context.fillStyle = canopyShadow;
+            context.fillRect(-5, -50, 10, 50);
+
+            createCanopyPath(context);
+
+            context.lineWidth = 4;
+            context.lineJoin = 'round';
+            context.strokeStyle = '#663300';
+            context.stroke();
+
+            context.fillStyle = '#339900';
+            context.fill();
+        }
+
+
+        function drawTrails() {
+            var context = canvas.getContext('2d');
+
+            context.save();
+
+            context.clearRect(0, 0, 400, 600);
+
+            context.translate(130, 250);
+            drawTree(context);
+            context.restore();
+
+            context.save();
+            context.translate(260, 500);
+
+            context.scale(2, 2);
+            drawTree(context);
+            context.restore();
+
+            context.save();
+            context.translate(-10, 350);
+            context.beginPath();
+            context.moveTo(0, 0);
+            context.quadraticCurveTo(170, -50, 260, -190);
+            context.quadraticCurveTo(310, -250, 410,-250);
+            context.strokeStyle = context.createPattern(gravel, 'repeat');
+            context.lineWidth = 20;
+            context.stroke();
+            context.restore();
+
+            context.save();
+            context.font = "60px impact";
+            context.textAlign = 'center';
+            context.fillStyle = '#996600';
+            context.fillText('Happy Trails!', 200, 60, 400);
+            context.restore();
+        }
+
+
+        // this function allows us to cover all browsers
+        // by aliasing the different browser-specific
+        // versions of the function to a single function
+        window.requestAnimFrame = (function(){
+          return  window.requestAnimationFrame       ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame    ||
+                  window.oRequestAnimationFrame      ||
+                  window.msRequestAnimationFrame     ||
+                  // fall back to the old setTimeout technique if nothing
+                  // else is available
+                  function(/* function */ callback, /* DOMElement */ element){
+                    window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
+
+        // This function is where we update the content of our canvas
+        function drawAFrame() {
+          var context = canvas.getContext('2d');
+
+          // do some drawing on the canvas, using the elapsedTime
+          // as a guide for changes.
+          context.save();
+
+          // draw the existing trails picture first
+          drawTrails();
+
+          // Darken the canvas for an eerie sky.
+          // By only darkening most of the time, we create lightning flashes
+          if (Math.random() > .01) {
+            context.globalAlpha = 0.65;
+            context.fillStyle = '#000000';
+            context.fillRect(0, 0, 400, 600);
+            context.globalAlpha = 1.0;
+          }
+
+          // Then draw a rain image, adjusted by the current time
+          var now = Date.now();
+          context.fillStyle = context.createPattern(rain, 'repeat');
+
+          // We'll draw two translated rain images at different rates to
+          // show thick rain and snow
+          // Our rectangle will be bigger than the display size, and
+          // repositioned based on the time
+          context.save();
+          context.translate(-256 + (0.1 * now) % 256, -256 + (0.5 * now) % 256);
+          context.fillRect(0, 0, 400 + 256, 600 + 256);
+          context.restore();
+
+          // The second rectangle translates at a different rate for
+          // thicker rain appearance
+          context.save();
+          context.translate(-256 + (0.08 * now) % 256, -256 + (0.2 * now) % 256);
+          context.fillRect(0, 0, 400 + 256, 600 + 256);
+          context.restore();
+
+          // draw some explanatory text
+          context.font = '32px san-serif';
+          context.textAlign = 'center';
+          context.fillStyle = '#990000';
+          context.fillText('Event canceled due to weather!', 200, 550, 400);
+
+          context.restore();
+        }
+
+        // This function will be called whenever the browser is ready
+        // for our application to render another frame.
+        function loopAnimation(currentTime) {
+          // Draw a single frame of animation on our canvas
+          drawAFrame();
+
+          // After this frame is drawn, let the browser schedule
+          // the next one
+          window.requestAnimFrame(loopAnimation, canvas);
+        }
+
+  </script>
+</html>
+

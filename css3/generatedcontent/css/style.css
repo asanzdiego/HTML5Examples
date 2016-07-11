@@ -1,0 +1,21 @@
+body {
+    padding:.5em;
+    font-family:"lucida grande";
+}
+
+p.note {
+    font-size:85%;
+    color:#666;
+}
+
+p.note::before {
+    content:"[";
+}
+p.note::after {
+    content:"]";
+}
+
+a[href^='http://']::after { content:" [" attr(href) "]";font-size:90%;font-style:italic;color:#999; }
+
+ul li { list-style:none;margin:0;text-indent:-1em; }
+ul li:before { content:"\2192 \0020"; }

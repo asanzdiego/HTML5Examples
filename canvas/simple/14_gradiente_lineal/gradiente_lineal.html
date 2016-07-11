@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    var gradiente1=lienzo.createLinearGradient(0,0,200,0);
+    gradiente1.addColorStop(0,"rgb(255,0,0)");
+    gradiente1.addColorStop(1,"rgb(0,0,0)");
+    lienzo.fillStyle=gradiente1;
+    lienzo.fillRect(0,0,200,200);
+    
+    var gradiente2=lienzo.createLinearGradient(200,300,0,300);
+    gradiente2.addColorStop(0,"rgb(255,0,0)");
+    gradiente2.addColorStop(1,"rgb(0,0,0)");
+    lienzo.fillStyle=gradiente2;
+    lienzo.fillRect(0,300,200,200);
+    
+    var gradiente3=lienzo.createLinearGradient(300,0,500,200);
+    gradiente3.addColorStop(0,"rgb(255,0,0)");
+    gradiente3.addColorStop(1,"rgb(0,0,0)");
+    lienzo.fillStyle=gradiente3;
+    lienzo.fillRect(300,0,200,200);
+    
+    var gradiente4=lienzo.createLinearGradient(300,300,500,500);
+    gradiente4.addColorStop(0,"rgb(255,0,0)");
+    gradiente4.addColorStop(0.5,"rgb(0,0,0)");
+    gradiente4.addColorStop(1,"rgb(255,0,0)");
+    lienzo.fillStyle=gradiente4;
+    lienzo.fillRect(300,300,200,200);
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>
