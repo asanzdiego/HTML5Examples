@@ -1,0 +1,2 @@
+1. Correr el servidor: python CORSServer.py 9999
+2. Entrar en http://portal.example.com:9999/ (previamente habremos mapeado portal.example.com con localhost en nuestro fichero de hosts)

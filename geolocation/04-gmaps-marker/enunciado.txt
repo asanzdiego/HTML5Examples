@@ -1,0 +1,14 @@
+Completa el código js en js/main.js para que aparezca un mapa de Google Maps con un
+marker en la posición donde el navegador te haya geolocalizado.
+
+Pistas:
+
+- Aquí hay un ejemplo sencillo de crear un marker: http://www.w3schools.com/googleapi/google_maps_overlays.asp
+
+- Revisa bien los argumentos de la función getCurrentPosition del objeto 
+geolocation: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+
+El primero es la función de éxito, y recibe como argumento la 
+posición obtenida. El segundo es la función de error y recibe como argumento un
+PositionError: https://developer.mozilla.org/en-US/docs/Web/API/PositionError
+

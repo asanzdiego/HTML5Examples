@@ -2,8 +2,7 @@ html,body {
 	height:100%;
 }
 
-header {
-		
+header {	
 	display:block;
 	background:#286af0;
 	padding:10px 0px;
@@ -26,6 +25,7 @@ aside {
 	/*visibility: hidden;*/
 }
 footer {
+    display: block;
 	position: relative;
 	margin-top: -50px;
 	height: 40px; 
@@ -39,6 +39,7 @@ figure {
 	display: table; margin: 0 auto;
 }
 
+/* Esto para jugar con transiciones en brackets. Empezar en linear... */
 section > figure > img { 
     margin-top: 0px;
     transition: margin-top 1s cubic-bezier(.95, -0.4, .95, -0.4);

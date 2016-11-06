@@ -1,0 +1,9 @@
+{
+  "alumnos": [
+    { "id": 1, "nombre": "Pepito", "edad": "25" },
+    { "id": 23, "nombre": "Juanito", "edad": "18" },
+    { "id": 122, "nombre": "Fulanito", "edad": "35" },
+    { "id": 57, "nombre": "Menganito", "edad": "30" }
+  ],
+  "profesor": { "nombre": "Jorge", "edad": "36" }
+}

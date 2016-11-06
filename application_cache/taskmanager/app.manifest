@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# version 7
+# This is a comment
+CACHE:
+index.html
+js/script.js
+js/zepto.min.js
+
+NETWORK:
+css/style.css

@@ -1,0 +1,3 @@
+1. Instalar json-server: npm install -g json-server
+2. Arrancarlo usando como base de datos el fichero serverdata/db.json: json-server --watch serverdata/db.json
+3. Arrancar la aplicación web

@@ -1,0 +1,16 @@
+{
+  "name": "sse_server",
+  "version": "1.0.0",
+  "description": "Just a dummy SSE server",
+  "main": "sse_server.js",
+  "dependencies": {
+    "http": "0.0.0",
+    "sse": "0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jorge Arevalo <jorgeas80@gmail.com>",
+  "license": "GPL-3.0"
+}

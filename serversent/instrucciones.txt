@@ -1,0 +1,1 @@
+El servidor con el que habla está puesto a pelo en el código. Es un script PHP en una máquina de Digital Ocean que tengo corriendo solo para los cursos (Jorge). Se incluye el script por si se quiere poner en otra máquina.

@@ -1,0 +1,8 @@
+Completar el código JS en js/main.js para mostrar un mapa con un infowindow centrado
+en la zona donde me haya detectado. Usar Google Maps
+
+Pistas: 
+
+Aquí un ejemplo de creación de infowindows: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+
+Puedes olvidarte del Marker por ahora, solo te interesa el infowindow. Concretamente, dos métodos del mismo: setPosition y setContent

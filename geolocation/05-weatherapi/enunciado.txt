@@ -1,0 +1,17 @@
+Completa el fichero js en js/WeatherWidget.js para que se muestre la previsión
+meteorológica para el día de hoy y para los próximos días en la ubicación obtenida
+mediante geolocation.
+
+Pistas:
+
+- Como verás, no se está usando jQuery para nada. Tendrás que hacer las llamadas
+AJAX en JS plano, y habrán de ser llamadas asíncronas. Aquí tienes ejemplos de 
+cómo hacerlas: http://www.w3schools.com/ajax/ajax_xmlhttprequest_send.asp
+
+- Como en el ejercicio anterior, en la función de error se pide que se informe del
+error concreto obtenido. Recuerda que la función de error recibe un PositionError: 
+https://developer.mozilla.org/en-US/docs/Web/API/PositionError
+
+- Se pide utilizar el tercer parámetro de la función getCurrentPosition, para
+especificar opciones. Es de tipo PositionOptions. Echale un vistazo a las opciones
+para entender lo que significa cada una: https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions

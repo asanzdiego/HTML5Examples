@@ -1,0 +1,12 @@
+#result {
+    background-color: yellow;
+    padding: 20px;
+    font-size: 140%;
+}
+footer {
+    font-size: 70%;
+    color: red;
+    position: fixed;
+    bottom: 1em;
+    text-align: center;
+}

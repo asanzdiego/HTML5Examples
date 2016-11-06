@@ -1,0 +1,21 @@
+Para poder ejecutar el ejercicio vamos a necesitar Python, y hacer algunas cosas
+
+1. Especificarle a Python que, cuando sirva webs, el MimeType de los archivos de manifest ha de ser el correcto. Para ello, añadimos esta línea al fichero /usr/lib/python3.5/mimetypes.py, dentro del array types_map (valdría igual con python 2.x):
+
+'.appcache': 'text/cache-manifest manifest'
+
+Añadir tantas extensiones como se quiera, en función de las extensiones que queremos permitir para los archivos de manifest.
+
+2. Añadir la siguiente línea al fichero de hosts (vale para Linux, Mac y Windows)
+
+127.0.0.1 geodata.example.net
+
+3. Correr un servidor web con Python desde la carpeta donde esté el ejercicio:
+
+python -m SimpleHTTPServer 8000
+
+4. Entrar en http://geodata.example.net:8000/
+
+Si entramos con FIREFOX es posible que nos de un error, porque ya no acepta AppCache (está obsoleto). Si funcionara, por estar tirando de una versión antigua de Firefox, probar la opción de trabajar desconectado para simular offline
+
+Si entramos con CHROME, seguramente siga aceptando AppCache. Abrir el modo depuración e ir a Resources. Ahí veremos si tenemos algo descargado a través de Application Cache. 

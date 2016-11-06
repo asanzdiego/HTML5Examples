@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portal [http://portal.example.com:9999]</title>
+        <link rel="stylesheet" href="styles/styles.css">
+    </head>
+
+
+    <body>
+        <h1>Cross-Origin Portal</h1>
+        <p><b>Origen</b>: http://portal.example.com:9999</p>
+        Estado <input type="text" id="statusText" value="Online">
+        <button id="sendButton">Cambiar estado</button>
+        <p>
+            Usamos <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage</a> para enviar un mensaje de actualización de estado al widget que se carga en el iFrame de abajo
+        </p>
+        <iframe id="widget" src="http://chat.example.net:9999/widget/index.html"></iframe>
+        <p>
+            <button id="stopButton">Snooze</button>
+        </p>
+
+        <script src="js/app.js"></script>
+
+    </body>
+
+</html>
+
+
+

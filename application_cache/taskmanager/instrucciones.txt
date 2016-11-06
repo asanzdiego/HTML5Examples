@@ -1,0 +1,1 @@
+Es posible que en Firefox no funcione el ejemplo, porque ya no acepta AppCache (está obsoleto)

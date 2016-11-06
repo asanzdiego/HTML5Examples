@@ -1,0 +1,12 @@
+Para poder ejecutar el ejercicio, será necesario:
+
+1. Añadir esto al fichero de hosts (Linux o Windows)
+
+127.0.0.1 chat.example.net
+127.0.0.1 portal.example.com
+
+2. Correr el servidor (startServer.sh). Se nos abrirá un navegador en http://portal.example.com:9999/
+
+El servidor que corremos es http-server, de node. Si no lo encuentra, lo instalamos:
+
+npm install -g http-server

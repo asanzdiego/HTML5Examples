@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8 />
+<title>Ciudades</title>
+<style>
+html {
+	height: 100%;
+}
+
+body {
+	font-family: helvetica;
+	padding: 20px;
+	color: #fff;
+	background: #575757;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#575757),
+		to(#272727) );
+}
+
+#contenedorfotos {
+	min-height: 100px;
+	border: 5px dashed #B9B9B9;
+	padding: 10px;
+	background: #171717;
+	overflow: hidden;
+	-webkit-border-radius: 10px;
+}
+
+#visitar {
+	min-height: 100px;
+	border: 5px dashed #B9B9B9;
+	padding: 10px;
+	background: #171717;
+	overflow: hidden;
+	-webkit-border-radius: 10px;
+}
+
+#visitados {
+	min-height: 100px;
+	border: 5px dashed #B9B9B9;
+	padding: 10px;
+	background: #171717;
+	overflow: hidden;
+	-webkit-border-radius: 10px;
+}
+
+p {
+	margin: 3px 0;
+}
+
+[draggable] {
+	-khtml-user-drag: element;
+}
+
+div[draggable] {
+	margin: 10px;
+	border: 5px solid #000;
+	height: 100px;
+	width: 200px;
+	display: inline-block;
+}
+
+#barcelona {
+	background: url(barcelona.jpg) no-repeat;
+}
+
+#florencia {
+	background: url(florencia.jpg) no-repeat;
+}
+
+#siena {
+	background: url(siena.jpg) no-repeat;
+}
+</style>
+</head>
+<body>
+	<h1>CONTENEDOR DE FOTOS</h1>
+
+	<div id="contenedorfotos">
+		<div id="barcelona" data-screen_name="barcelona" precio="2000"
+			draggable="true"></div>
+		<div id="florencia" data-screen_name="florencia" precio="2000"
+			draggable="true"></div>
+		<div id="siena" data-screen_name="siena" precio="2500"
+			draggable="true"></div>
+	</div>
+	<h1>A VISITAR</h1>
+
+	<div id="visitar"></div>
+	<h1>VISITADOS</h1>
+
+	<div id="visitados"></div>
+
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$('document').ready(init);
+
+		function init() {
+			$('#barcelona, #florencia, #siena').bind(
+					'dragstart',
+					function(event) { //Se le añade el evento dragstart
+						event.originalEvent.dataTransfer.setData("text/plain",
+								event.target.getAttribute('id'));
+						event.originalEvent.dataTransfer.setData("precio",
+								event.target.getAttribute('precio'));
+						//event.preventDefault(); //para que el firefox no haga redireccionamientos
+					});
+
+			// bind the dragover event on the board sections
+			$('#visitar, #contenedorfotos, #visitados').bind('dragover',
+					function(event) {
+						event.preventDefault();
+					});
+
+			//bind the drop event on the board sections
+			$('#visitar, #contenedorfotos, #visitados').bind(
+					'drop',
+					function(event) {
+						var notecard = event.originalEvent.dataTransfer
+								.getData("text/plain");
+						var precio = event.originalEvent.dataTransfer
+								.getData("precio");
+						event.target.appendChild(document
+								.getElementById(notecard));
+						if(!document
+								.getElementById("n"+notecard))
+						$("#"+notecard).append("<div id='n"+notecard+"'>NOMBRE: "
+										+ notecard + " PRECIO: " + precio
+										+ "</div>");
+						if(event.target.id=="contenedorfotos"){
+							$("#n"+notecard).remove();
+						}						
+						//Turn off the default behaviour
+						//without this, FF will try and go to a URL with your id's name
+						event.preventDefault();
+					});
+		}
+
+	</script>
+</body>
+</html>

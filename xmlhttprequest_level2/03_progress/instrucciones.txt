@@ -1,0 +1,9 @@
+Para poder ejecutar el ejercicio:
+
+1. Añadir esta línea al fichero de hosts (Linux o Windows)
+
+127.0.0.1 geodata.example.net
+
+2. Correr el servidor: python CORSServer.py 9999 (es un servidor CORS en Python, poca broma...)
+
+3. Entrar con el navegador en http://geodata.example.net:9999

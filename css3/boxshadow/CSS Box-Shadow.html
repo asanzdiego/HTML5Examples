@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Box Shadow</title>
+</head>
+<body>
+
+	<!-- STYLE SECTION -->
+
+	<style type="text/css">
+
+		body {
+			background:#E6E6E6;
+			font-family: "Arial", "sans-serif";
+			text-transform: uppercase;
+		}
+
+		body img {
+			margin-top: 1em;
+			margin-bottom: 3em;
+			margin-left: 47em;
+		}
+
+
+	.box h2 {
+		text-align: center;
+		padding-top: 3.5em;
+	}
+	.box {
+	    width:50%;
+	    height:200px;
+	    background:#FFF;
+	    margin:50px auto;
+	}
+
+
+	 /* no horizontal shadow, 10px vertical shadow, 6px blur and -6px spread radius, gray color */
+
+	.basic{
+	    -webkit-box-shadow: 0 10px 6px -6px #777;
+	       -moz-box-shadow: 0 10px 6px -6px #777;
+	            box-shadow: 0 10px 6px -6px #777;	
+	}
+
+
+	 /* EFFECT 1 */
+
+	/* Here shadows are styled as elements to give impressive look */
+	/* However, the box shadow property is applied at the end to make final touches */
+
+	.effect1
+	{
+	  position: relative;	/* relative positioning referring to before and after */
+	}
+	.effect1:before, .effect1:after  /* apply some mutual properties before and after this element */
+	{
+	  z-index: -1;			/* send this element backward */
+	  position: absolute;	/* absolute positioning referring to effect2 */
+	  content: "";			/* just required, no need to put anything inside  */
+	  bottom: 15px;  		/* bottom shadow alignment, less is closer to bottom */
+	  left: 10px;			/* consider this like a margin left */
+	  width: 50%;			/* width of the shadow element background */
+	  top: 80%;				/* consider this as margin top of the shadow element */
+	  max-width:300px;		/* restricts the max width of the shadow element  */
+	  background: #777;		/* gives a background color to the shadow element  */
+	  -webkit-box-shadow: 0 15px 10px #777;	/* compatibility case application */
+	  -moz-box-shadow: 0 15px 10px #777;	/* compatibility case application */
+	  box-shadow: 0 15px 10px #777;	/* applied the basic box-shadow property */
+	  /* rotation of shadows/elements gives that 3D look to the box */
+	  -webkit-transform: rotate(-3deg);
+	  -moz-transform: rotate(-3deg);
+	  -o-transform: rotate(-3deg);
+	  -ms-transform: rotate(-3deg);
+	  transform: rotate(-3deg);
+	}
+	.effect1:after
+	{
+	  -webkit-transform: rotate(3deg); 	/* aligns the shadow right */
+	  -moz-transform: rotate(3deg);
+	  -o-transform: rotate(3deg);
+	  -ms-transform: rotate(3deg);
+	  transform: rotate(3deg);
+	  right: 10px;					/* consider this like a margin right */
+	  left: auto;					/* leave this auto to automatically set the left */
+	}
+
+	/* EFFECT 2 */
+
+	.effect2
+	{
+	  position: relative;
+	}
+	.effect2:before
+	{
+	  z-index: -1;
+	  position: absolute;
+	  content: "";
+	  bottom: 15px;
+	  left: 10px;
+	  width: 50%;
+	  top: 80%;
+	  max-width:300px;
+	  background: #777;
+	  -webkit-box-shadow: 0 15px 10px #777;
+	  -moz-box-shadow: 0 15px 10px #777;
+	  box-shadow: 0 15px 10px #777;
+	  -webkit-transform: rotate(-3deg);
+	  -moz-transform: rotate(-3deg);
+	  -o-transform: rotate(-3deg);
+	  -ms-transform: rotate(-3deg);
+	  transform: rotate(-3deg);
+	}
+
+	/* EFFECT 3 */
+
+	.effect3
+	{
+	  position: relative;
+	}
+	.effect3:after
+	{
+	  z-index: -1;
+	  position: absolute;
+	  content: "";
+	  bottom: 15px;
+	  right: 10px;
+	  left: auto;
+	  width: 50%;
+	  top: 80%;
+	  max-width:300px;
+	  background: #777;
+	  -webkit-box-shadow: 0 15px 10px #777;
+	  -moz-box-shadow: 0 15px 10px #777;
+	  box-shadow: 0 15px 10px #777;
+	  -webkit-transform: rotate(3deg);
+	  -moz-transform: rotate(3deg);
+	  -o-transform: rotate(3deg);
+	  -ms-transform: rotate(3deg);
+	  transform: rotate(3deg);
+	}
+
+	/* EFFECT 4 */
+
+	.effect4
+	{
+	  position: relative;
+	}
+	.effect4:before, .effect4:after
+	{
+	  z-index: -1;
+	  position: absolute;
+	  content: "";
+	  bottom: 25px;
+	  left: 10px;
+	  width: 50%;
+	  top: 80%;
+	  max-width:300px;
+	  background: #777;
+	  -webkit-box-shadow: 0 35px 20px #777;
+	  -moz-box-shadow: 0 35px 20px #777;
+	  box-shadow: 0 35px 20px #777;
+	  -webkit-transform: rotate(-8deg);
+	  -moz-transform: rotate(-8deg);
+	  -o-transform: rotate(-8deg);
+	  -ms-transform: rotate(-8deg);
+	  transform: rotate(-8deg);
+	}
+	.effect4:after
+	{
+	  -webkit-transform: rotate(8deg);
+	  -moz-transform: rotate(8deg);
+	  -o-transform: rotate(8deg);
+	  -ms-transform: rotate(8deg);
+	  transform: rotate(8deg);
+	  right: 10px;
+	  left: auto;
+	}
+
+	/* EFFECT 5 */
+
+	.effect5
+	{
+	    position:relative;
+	    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+	.effect5:before, .effect5:after
+	{
+	    content:"";
+	    position:absolute;
+	    z-index:-1;
+	    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    top:50%;
+	    bottom:0;
+	    left:10px;
+	    right:10px;
+	    -moz-border-radius:100px / 10px;
+	    border-radius:100px / 10px;
+	}
+	.effect5:after
+	{
+	    right:10px;
+	    left:auto;
+	    -webkit-transform:skew(8deg) rotate(3deg);
+	       -moz-transform:skew(8deg) rotate(3deg);
+	        -ms-transform:skew(8deg) rotate(3deg);
+	         -o-transform:skew(8deg) rotate(3deg);
+	            transform:skew(8deg) rotate(3deg);
+	}
+
+	/* EFFECT 6 */
+
+	.effect6
+	{
+	    position:relative;
+	    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+	.effect6:before, .effect6:after
+	{
+	    content:"";
+	    position:absolute;
+	    z-index:-1;
+	    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    top:0;
+	    bottom:0;
+	    left:10px;
+	    right:10px;
+	    -moz-border-radius:100px / 10px;
+	    border-radius:100px / 10px;
+	}
+	.effect6:after
+	{
+	    right:10px;
+	    left:auto;
+	    -webkit-transform:skew(8deg) rotate(3deg);
+	       -moz-transform:skew(8deg) rotate(3deg);
+	        -ms-transform:skew(8deg) rotate(3deg);
+	         -o-transform:skew(8deg) rotate(3deg);
+	            transform:skew(8deg) rotate(3deg);
+	}
+
+	/* EFFECT 7 */
+
+	.effect7
+	{
+	    position:relative;
+	    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	}
+	.effect7:before, .effect7:after
+	{
+	    content:"";
+	    position:absolute;
+	    z-index:-1;
+	    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    box-shadow:0 0 20px rgba(0,0,0,0.8);
+	    top:10px;
+	    bottom:10px;
+	    left:0;
+	    right:0;
+	    -moz-border-radius:100px / 10px;
+	    border-radius:100px / 10px;
+	}
+	.effect7:after
+	{
+	    right:10px;
+	    left:auto;
+	    -webkit-transform:skew(8deg) rotate(3deg);
+	       -moz-transform:skew(8deg) rotate(3deg);
+	        -ms-transform:skew(8deg) rotate(3deg);
+	         -o-transform:skew(8deg) rotate(3deg);
+	            transform:skew(8deg) rotate(3deg);
+	}
+  	</style>
+
+
+	<!-- HTML SECTION -->
+
+
+	<div class="box basic">
+	<h2>Basic Shadow</h2>
+	</div>
+
+	<div class="box effect1">
+		<h2>Soft Box Shadow on Both Sides</h2>
+	</div>
+
+	<div class="box effect2">
+		<h2>Left Box Shadow</h2>
+	</div>
+
+	<div class="box effect3">
+		<h2>Right Box Shadow</h2>
+	</div>
+
+	<div class="box effect4">
+		<h2>Hard Box Shadow on Both Sides</h2>
+	</div>
+
+	<div class="box effect5">
+		<h2>Soft Inset Box Shadow</h2>
+	</div>
+
+	<div class="box effect6">
+		<h2>Top &amp Bottom Box Shadow</h2>
+	</div>
+
+	<div class="box effect7">
+		<h2>Left &amp Right Box Shadow</h2>
+	</div>
+
+	<img src="http://webcodegeeks.javacodegeeks.netdna-cdn.com/wp-content/uploads/2014/10/WCG-logo.png">
+
+</body>
+	
+
+</html>
+
+
